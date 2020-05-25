@@ -1,0 +1,66 @@
+@charset 'UTF-8';
+
+// color
+$sky: #CEFFFF;
+$yellow: #FFFBCB;
+$pink: #FF6B9B;
+$blue: #37ACE5;
+$green: #67CD73;
+$branch: #9A643E;
+
+$lt-pink: #FFA1BE;
+$dk-pink: #FF4D87;
+$dk-blue: #1899E1;
+$dk-green: #3FB34F;
+
+// font
+$num: 'Jost', sans-serif;
+$font: 'Kosugi Maru', sans-serif;
+$txt: 16px;
+$lineHgt: 1.5;
+
+// position
+$basic: 0 auto;
+$width: 840px;
+
+// mixin
+
+
+@mixin wrapper {
+  max-width: $width;
+  width: 62%;
+  height: 72%;
+  padding: 40px 30px;
+  border-radius: 14px;
+  background: $yellow;
+  @include borders(3px, solid, $lt-pink);
+}
+
+@mixin flexSetting($pos, $item) {
+  display: flex;
+  justify-content: $pos;
+  align-items: $item;
+}
+
+@mixin borders($px, $type, $col){
+  border: $px $type $col;
+}
+
+@mixin btn ($bg, $px, $shadow){
+  transition: all .2s ease;
+  cursor: pointer;
+  display: block;
+  background: $bg;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 $px 0 $shadow;
+  &:hover{
+    transform: translateY(8px);
+    box-shadow: none;
+  }
+}

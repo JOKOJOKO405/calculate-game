@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;900&family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/import.css">
+  <title>計算アプリテスト</title>
+</head>
+<body>
+    <div class="left"></div>
+    <div class="right"></div>
+  <div id="app" v-cloak>
+    <div class="wrapper">
+      <!-- タイトル画面 -->
+      <div class="title-wrapper" v-if="title">
+        <div class="title">
+          <img src="img/title.svg" alt="さくらんぼけいさん">
+        </div>
+        <div class="animals"><img src="img/animals.svg" alt=""></div>
+        <button class="start-btn" @click.prevent="startGame">はじめる</button>
+      </div>
+      <!-- ゲーム画面 -->
+      <!-- タイムアップ時 -->
+      <transition name="bounce">
+        <div v-if="timeUp" class="time-up">
+          <img src="img/timeup.svg" alt="">
+        </div>
+      </transition>
+      
+      <!-- スタート -->
+      <div class="games" v-if="isStart">
+        <div class="timer">
+          <img src="img/timer.svg" alt="">
+          <p class="time">{{ timer }}</p>
+        </div>
+        <p class="answer">{{ answer }}</p>
+        <div class="branches"></div>
+        <form action="" name="game">
+          <div class="fill-answer-container">
+            <input type="number" v-model.number="fillLeft" ref="num1">
+            <p class="plus">+</p>
+            <input type="number" v-model.number="fillRight" ref="num2">
+          </div>
+          <div class="judge-container">
+            <div class="correct" v-if="correct">
+              <img src="img/correct.svg" alt="">
+            </div>
+            <div class="incorrect" v-if="incorrect">
+              <img src="img/incorrect.svg" alt="">
+            </div>
+          </div>
+          <div class="btns-container">
+            <button class="done-btn" @click.prevent="startCulc">こたえる</button>
+            <button class="change-btn" @click.prevent="changeNum">わからない</button>
+            <button class="quit-btn" @click.prevent="quitGame">やめる</button>
+          </div>
+        </form>
+        <div class="totalScore-on">
+          <p class="ok">せいかいしたかず：<span>{{ correctNum }}</span></p>
+          <p class="no">まちがえたかず：<span>{{ incorrectNum }}</span></p>
+        </div>
+      </div>
+      <!-- /.games -->
+
+      <!-- ゲーム終了 -->
+      <div class="totalScore" v-if="score">
+        <div class="num">
+          <p class="ok">せいかいしたかず：<span>{{ correctNum }}</span></p>
+          <p class="no">まちがえたかず：<span>{{ incorrectNum }}</span></p>
+        </div>
+        <div class="btns-container">
+          <button class="done-btn" @click.prevent="startGame">もういちど</button>
+          <button class="quit-btn" @click.prevent="quitGame">もどる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

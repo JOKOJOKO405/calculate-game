@@ -1,0 +1,257 @@
+@import 'variables';
+
+html,body{
+  height: 100%;
+}
+img{
+  width: 100%;
+  display: block;
+}
+[v-cloak]{
+  display: none;
+}
+body{
+  height: 100%;
+  font-family: $font;
+  font-size: $txt;
+  line-height: $lineHgt;
+  background: $sky url(../img/crowd.png) top left 30%/30% repeat-x;
+  .bottom-bg{
+    position: absolute;
+    bottom: 0;
+    width: 31.63%;
+    height: 73.17%;
+    z-index: -5;
+  }
+  .left{
+    @extend .bottom-bg;
+    left: 0;
+    background: url(../img/left.png) bottom left no-repeat;
+    background-size: contain;
+  }
+  .right{
+    @extend .bottom-bg;
+    right: 0;
+    background: url(../img/right.png) bottom right no-repeat;
+    background-size: contain;
+  }
+}
+
+.wrapper{
+  @include wrapper;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.title{
+  width: 70%;
+  margin: 20px auto 0;
+}
+.animals{
+  width: 70%;
+  margin: 40px auto;
+}
+
+// ボタン
+.start-btn{
+  @include btn($green, 8px, $dk-green);
+  margin: 0 auto 0;
+  &:hover{
+    background: $dk-green;
+  }
+}
+// 答えるボタンとやめるボタン
+.btns-container{
+  @include flexSetting(center, center);
+  margin: 60px auto;
+  .quit-btn{
+    @include btn($blue, 8px, $dk-blue);
+    &:hover{
+      background: $dk-blue;
+    }
+  }
+  .done-btn{
+    @include btn($pink, 8px, $dk-pink);
+    &:hover{
+      background: $dk-pink;
+    }
+    &:disabled{
+      @include btn(#bbb, 8px, #555);
+      &:hover{
+       transform: none;
+       box-shadow: 0 8px 0 #555;
+      }
+    }
+  }
+  .change-btn{
+    @extend .start-btn;
+    margin: 0 auto;
+  }
+}
+
+// タイムアップ
+.time-up{
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
+  width: 800px;
+  margin: auto;
+  z-index: 10;
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// ゲーム画面
+.games{
+  position: relative;
+  .timer{
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    .time{
+      position: absolute;
+      top: 40px;
+      right: 0;
+      left: 0;
+      text-align: center;
+      margin: auto;
+      font-family: $num;
+      color: $dk-pink;
+      font-weight: 900;
+      font-size: 90px;
+    }
+  }
+  .answer{
+    text-align: center;
+    font-size: 150px;
+    font-family: $num;
+    color: $dk-pink;
+    font-weight: 900;
+  }
+  .branches{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-left: 4px solid $branch;
+    border-top: 4px solid $branch;
+    transform: rotate(45deg);
+  }
+  .fill-answer-container{
+    @include flexSetting(center, center);
+    width: calc(100% - 400px);
+    margin: 0 auto;
+    input{
+      color: $branch;
+      font-family: $num;
+      font-weight: 900;
+      text-align: center;
+      margin-top: -55px;
+      padding: 30px;
+      font-size: 40px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      outline: none;
+      @include borders(4px, solid, $pink);
+    }
+    .plus{
+      font-size: 80px;
+      color: $dk-pink;
+      line-height: 0.8;
+      font-family: $num;
+      margin: -50px 20px 0;
+      font-weight: 600;
+    }
+  }
+  // 正解or不正解
+  .judge-container{
+    .correct,
+    .incorrect{
+      position: absolute;
+      right: -80px;
+      top: 20%;
+      margin: auto;
+      z-index: 2;
+      width: 350px;
+      transform: rotate(-10deg);
+    }
+  }
+  .totalScore-on{
+    @include flexSetting(center, center);
+    text-align: center;
+    .ok,
+    .no{
+      margin: 10px 15px;
+      font-size: 20px;
+      color: $branch;
+      span{
+        font-size: 180%;
+        font-weight: 900;
+        font-family: $num;
+      }
+    }
+    .ok{
+      span{
+        color: $pink;
+      }
+    }
+    .no{
+      span{
+        color: $blue;
+      }
+    }
+  }
+}
+
+.totalScore{
+  text-align: center;
+  margin: 40px auto 60px;
+  .ok,
+  .no{
+    font-weight: 600;
+    font-size: 40px;
+    color: $branch;
+    span{
+        font-size: 180%;
+        font-weight: 900;
+        font-family: $num;
+    }
+  }
+  .ok{
+    span{
+      color: $pink;
+    }
+  }
+  .no{
+    span{
+      color: $blue;
+    }
+  }
+  .btns-container{
+    display: block;
+    button{
+       margin-bottom: 35px;
+    }
+  }
+}
+
+
+

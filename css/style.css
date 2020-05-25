@@ -1,0 +1,349 @@
+html, body {
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+body {
+  height: 100%;
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #CEFFFF url(../img/crowd.png) top left 30%/30% repeat-x;
+}
+
+body .bottom-bg, body .left, body .right {
+  position: absolute;
+  bottom: 0;
+  width: 31.63%;
+  height: 73.17%;
+  z-index: -5;
+}
+
+body .left {
+  left: 0;
+  background: url(../img/left.png) bottom left no-repeat;
+  background-size: contain;
+}
+
+body .right {
+  right: 0;
+  background: url(../img/right.png) bottom right no-repeat;
+  background-size: contain;
+}
+
+.wrapper {
+  max-width: 840px;
+  width: 62%;
+  height: 72%;
+  padding: 40px 30px;
+  border-radius: 14px;
+  background: #FFFBCB;
+  border: 3px solid #FFA1BE;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.title {
+  width: 70%;
+  margin: 20px auto 0;
+}
+
+.animals {
+  width: 70%;
+  margin: 40px auto;
+}
+
+.start-btn, .btns-container .change-btn {
+  transition: all .2s ease;
+  cursor: pointer;
+  display: block;
+  background: #67CD73;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 8px 0 #3FB34F;
+  margin: 0 auto 0;
+}
+
+.start-btn:hover, .btns-container .change-btn:hover {
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.start-btn:hover, .btns-container .change-btn:hover {
+  background: #3FB34F;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+}
+
+.btns-container .quit-btn {
+  transition: all .2s ease;
+  cursor: pointer;
+  display: block;
+  background: #37ACE5;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 8px 0 #1899E1;
+}
+
+.btns-container .quit-btn:hover {
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.btns-container .quit-btn:hover {
+  background: #1899E1;
+}
+
+.btns-container .done-btn {
+  transition: all .2s ease;
+  cursor: pointer;
+  display: block;
+  background: #FF6B9B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 8px 0 #FF4D87;
+}
+
+.btns-container .done-btn:hover {
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.btns-container .done-btn:hover {
+  background: #FF4D87;
+}
+
+.btns-container .done-btn:disabled {
+  transition: all .2s ease;
+  cursor: pointer;
+  display: block;
+  background: #bbb;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 8px 0 #555;
+}
+
+.btns-container .done-btn:disabled:hover {
+  transform: translateY(8px);
+  box-shadow: none;
+}
+
+.btns-container .done-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 8px 0 #555;
+}
+
+.btns-container .change-btn {
+  margin: 0 auto;
+}
+
+.time-up {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
+  width: 800px;
+  margin: auto;
+  z-index: 10;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.games {
+  position: relative;
+}
+
+.games .timer {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 220px;
+}
+
+.games .timer .time {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: auto;
+  font-family: "Jost", sans-serif;
+  color: #FF4D87;
+  font-weight: 900;
+  font-size: 90px;
+}
+
+.games .answer {
+  text-align: center;
+  font-size: 150px;
+  font-family: "Jost", sans-serif;
+  color: #FF4D87;
+  font-weight: 900;
+}
+
+.games .branches {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-left: 4px solid #9A643E;
+  border-top: 4px solid #9A643E;
+  transform: rotate(45deg);
+}
+
+.games .fill-answer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 400px);
+  margin: 0 auto;
+}
+
+.games .fill-answer-container input {
+  color: #9A643E;
+  font-family: "Jost", sans-serif;
+  font-weight: 900;
+  text-align: center;
+  margin-top: -55px;
+  padding: 30px;
+  font-size: 40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  outline: none;
+  border: 4px solid #FF6B9B;
+}
+
+.games .fill-answer-container .plus {
+  font-size: 80px;
+  color: #FF4D87;
+  line-height: 0.8;
+  font-family: "Jost", sans-serif;
+  margin: -50px 20px 0;
+  font-weight: 600;
+}
+
+.games .judge-container .correct,
+.games .judge-container .incorrect {
+  position: absolute;
+  right: -80px;
+  top: 20%;
+  margin: auto;
+  z-index: 2;
+  width: 350px;
+  transform: rotate(-10deg);
+}
+
+.games .totalScore-on {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.games .totalScore-on .ok,
+.games .totalScore-on .no {
+  margin: 10px 15px;
+  font-size: 20px;
+  color: #9A643E;
+}
+
+.games .totalScore-on .ok span,
+.games .totalScore-on .no span {
+  font-size: 180%;
+  font-weight: 900;
+  font-family: "Jost", sans-serif;
+}
+
+.games .totalScore-on .ok span {
+  color: #FF6B9B;
+}
+
+.games .totalScore-on .no span {
+  color: #37ACE5;
+}
+
+.totalScore {
+  text-align: center;
+  margin: 40px auto 60px;
+}
+
+.totalScore .ok,
+.totalScore .no {
+  font-weight: 600;
+  font-size: 40px;
+  color: #9A643E;
+}
+
+.totalScore .ok span,
+.totalScore .no span {
+  font-size: 180%;
+  font-weight: 900;
+  font-family: "Jost", sans-serif;
+}
+
+.totalScore .ok span {
+  color: #FF6B9B;
+}
+
+.totalScore .no span {
+  color: #37ACE5;
+}
+
+.totalScore .btns-container {
+  display: block;
+}
+
+.totalScore .btns-container button {
+  margin-bottom: 35px;
+}
