@@ -456,7 +456,7 @@ body .right {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px auto;
+  margin: 60px auto 0;
 }
 
 .btns-container .quit-btn {
