@@ -33,7 +33,6 @@ var app = new Vue({
       this.isStart = false;
       this.timer = 30;
       this.score = false;
-      console.log(this.timer);
     },
     changeNum: function(){
       this.createAnser();

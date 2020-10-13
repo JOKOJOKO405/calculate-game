@@ -67,7 +67,7 @@ body{
 // 答えるボタンとやめるボタン
 .btns-container{
   @include flexSetting(center, center);
-  margin: 60px auto;
+  margin: 60px auto 0;
   .quit-btn{
     @include btn($blue, 8px, $dk-blue);
     &:hover{
